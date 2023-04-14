@@ -18,7 +18,7 @@ const newsSchema = new mongoose.Schema({
     //     type: date,
     //     required: true,
     // }
-})
+}, {timestamps: true})
 
 const News = mongoose.model('News', newsSchema); 
 
