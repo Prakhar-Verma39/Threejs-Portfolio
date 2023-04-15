@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const News = require('./models/news');
 const Announcements = require('./models/announcement');
 const Events = require('./models/event');
+const NavbarItems = require('./models/navbarItem');
 
 mongoose.connect('mongodb://127.0.0.1:27017/IPS')
  .then(() => {
@@ -112,6 +113,72 @@ const seedEvents =[
 ]
 
 Events.insertMany(seedEvents)  
+                                 
+    .then(res => {
+    })
+    .catch(err => {
+        console.log(err)
+    })
+
+
+const seedNavbarItems =[
+    {
+        "item": "Home",
+        "link": "/",
+        "subItems": [],
+        "subLinks": []      
+    },
+    {
+        "item": "About",
+        "link": "/about",
+        "subItems": [],
+        "subLinks": []
+    },
+    {
+        "item": "Centres",
+        "link": "#",   
+        "subItems": ["Centre of Computer Education","Centre of Fashion & Design Technology", "Centre of Food Technology", "Centre of Media Studies"],
+        "subLinks": ["/home/cce", "/home/cfdt", "/home/cft", "/home/cms"]
+    },
+    {
+        "item":  "Student",
+        "link": "/student",   
+        "subItems": [],
+        "subLinks": []
+    },
+    {
+        "item":  "Gallery",
+        "link": "/gallery",
+        "subItems": [],
+        "subLinks": []   
+    },
+    {
+        "item":  "Admission",
+        "link": "/admission",
+        "subItems": [],
+        "subLinks": []   
+    },
+    {
+        "item":  "Newsletter",
+        "link": "/newsletter",
+        "subItems": [],
+        "subLinks": []   
+    },
+    {
+        "item":  "Contact Us",
+        "link": "/contactus",
+        "subItems": [],
+        "subLinks": []   
+    },
+    {
+        "item":  "Alumni",
+        "link": "/alumni",
+        "subItems": [],
+        "subLinks": []   
+    }
+]
+
+NavbarItems.insertMany(seedNavbarItems)  
                                  
     .then(res => {
     })

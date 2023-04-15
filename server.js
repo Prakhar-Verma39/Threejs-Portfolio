@@ -5,9 +5,10 @@ const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
 const ExpressError = require('./utils/ExpressError.js');
 
-const news = require('./routes/newsRoutes');
-const announcements = require('./routes/announcementRoutes');
-const events = require('./routes/eventRoutes.js');
+const newsRoutes = require('./routes/news');
+const announcementsRoutes = require('./routes/announcements.js');
+const eventsRoutes = require('./routes/events.js');
+const navbarItemsRoutes = require('./routes/navbarItems.js');
 
 
 mongoose.connect('mongodb://127.0.0.1:27017/IPS');
@@ -38,16 +39,20 @@ app.get('/', (req, res) => {
 
 
 //------------------------------------------- News routes starts----------------------------------------
-app.use('/news', news)
+app.use('/news', newsRoutes)
 //------------------------------------------- News routes ends----------------------------------------
 
 //------------------------------------------- Announcements routes starts----------------------------------------
-app.use('/announcements', announcements)
+app.use('/announcements', announcementsRoutes)
 //------------------------------------------- Announcements routes ends----------------------------------------
 
 //------------------------------------------- Events routes starts----------------------------------------
-app.use('/events', events)
+app.use('/events', eventsRoutes)
 //------------------------------------------- Events routes ends----------------------------------------
+
+//------------------------------------------- NavbarItems routes starts----------------------------------------
+app.use('/navbarItems', navbarItemsRoutes)
+//------------------------------------------- NavbarItems routes ends----------------------------------------
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404))

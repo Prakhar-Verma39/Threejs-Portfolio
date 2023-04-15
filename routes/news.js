@@ -4,7 +4,7 @@ const router = express.Router();
 const catchAsync = require('../utils/catchAsync.js');
 const ExpressError = require('../utils/ExpressError.js');
 
-const News = require('../models/news');
+const News = require('../models/news.js');
 
 const {newsSchema} = require('../schemas.js')
 

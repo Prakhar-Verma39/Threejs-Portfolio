@@ -13,11 +13,7 @@ const announcementSchema = new mongoose.Schema({
         type: String,
         required: true
     }
-    // ,
-    // date: {
-    //     type: date,
-    //     required: true,
-    // }
+    
 }, {timestamps: true})
 
 const Announcement = mongoose.model('Announcement', announcementSchema); 

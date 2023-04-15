@@ -1,0 +1,25 @@
+<% layout('layouts/boilerplate') %>
+
+    <div class="row">
+            <div class="card mb-3">
+                <div class="card-body">
+                <h2 class="card-title">Item: <%= navbarItem.item %></h2>
+                <p class="card-text">Link: <%= navbarItem.link %></p>
+                <p class="card-text">subItems: [ <% if(navbarItem.subItems.length) { navbarItem.subItems.forEach(subItem => { %>
+                    <span><%= subItem %>, </span>
+                <% });} %> ]</p>
+                <p class="card-text">subLinks: [ <% if(navbarItem.subItems.length) { navbarItem.subLinks.forEach(subLink => { %>
+                    <span><%= subLink %>, </span>
+                <% });} %> ]</p>
+                </div>
+                <div class="card-body">
+                    <a class="card-link btn btn-info" href="/navbarItems/<%=navbarItem._id%>/edit">Edit</a>             
+                    <form class="d-inline" action="/navbarItems/<%=navbarItem._id%>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+                <div class="card-footer" style="color: rgb(125 130 137 / 75%)!important;">
+                    <%= navbarItem.updatedAt %>
+                </div>
+            </div>
+    </div>
