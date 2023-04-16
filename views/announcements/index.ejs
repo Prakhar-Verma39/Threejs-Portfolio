@@ -1,7 +1,7 @@
 <% layout('layouts/boilerplate') %>
 
     <div class="col-8"> 
-        <h1>All Announcements</h1>
+        <h1 class="text-center">All Announcements</h1>
         <div>
             <a href="/announcements/new">Add a Announcement</a>
         </div>
@@ -12,7 +12,6 @@
                         <div class="card-body ps-4">
                             <h5 class="card-title"><%= c.title %></h5>
                             <p class="card-text"><%= c.description %></p>
-                            <p></p>
                             <a class="btn btn-primary" href="/announcements/<%=c._id%>">View more...</a>
                         </div>
                     
