@@ -28,7 +28,7 @@ module.exports.navbarItemSchema = Joi.object({
     navbarItem: Joi.object({
         item: Joi.string().required(),
         link: Joi.string().required(), 
-        subItems: Joi.array().items(Joi.string().empty('')),
-        subLinks: Joi.array().items(Joi.string().empty(''))
+        subItems: Joi.array().sparse().items(Joi.string().empty('')),
+        subLinks: Joi.array().sparse().items(Joi.string().empty(''))
     }).required()
 });

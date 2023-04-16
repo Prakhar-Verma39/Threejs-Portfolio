@@ -25,7 +25,7 @@ router.get('/', catchAsync(async (req, res) => {
 }));
 
 router.get('/new', (req, res) => {
-    res.render('navbarItems/new');
+    res.render('navbarItems/new', {limit: 2});
 })
 
 router.post('/', validateNavbarItem, catchAsync(async (req, res) => {
@@ -43,7 +43,7 @@ router.get('/:id', catchAsync(async (req, res) => {
 router.get('/:id/edit', catchAsync(async (req, res) => {
     const { id } = req.params;
     const navbarItem = await NavbarItems.findById(id);
-    res.render('navbarItems/edit', { navbarItem })
+    res.render('navbarItems/edit', { navbarItem, limit: 2 })
 }));
 
 router.put('/:id',  validateNavbarItem, catchAsync(async (req, res) => {
