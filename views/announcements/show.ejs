@@ -4,7 +4,7 @@
             <div class="card mb-3">
                 <div class="card-body">
                 <h2 class="card-title"><%= announcement.title %></h2>
-                <p class="card-text"><%= announcement.description %></p>
+                <p class="card-text"><b>DESCRIPTION : </b><%= announcement.description %></p>
                 </div>
                 <div class="card-body">
                     <a class="card-link btn btn-info" href="/announcements/<%=announcement._id%>/edit">Edit</a>             
@@ -13,7 +13,7 @@
                     </form>
                 </div>
                 <div class="card-footer" style="color: rgb(125 130 137 / 75%)!important;">
-                    <%= announcement.updatedAt %>
+                    <b> Last Updated : </b><%= announcement.updatedAt %>
                 </div>
             </div>
     </div>

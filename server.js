@@ -3,12 +3,14 @@ const path = require('path');
 const methodOverride = require('method-override')
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
-const ExpressError = require('./utils/ExpressError.js');
+const ExpressError = require('./utils/ExpressError');
 
+const announcementsRoutes = require('./routes/announcements');
+const eventsRoutes = require('./routes/events');
+const facultiesRoutes = require('./routes/faculties');
+const navbarItemsRoutes = require('./routes/navbarItems');
 const newsRoutes = require('./routes/news');
-const announcementsRoutes = require('./routes/announcements.js');
-const eventsRoutes = require('./routes/events.js');
-const navbarItemsRoutes = require('./routes/navbarItems.js');
+const pagesRoutes = require('./routes/pages');
 
 
 mongoose.connect('mongodb://127.0.0.1:27017/IPS');
@@ -29,18 +31,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
 
-
-
-
-
 app.get('/', (req, res) => {
     res.render('dashboard')
 });
 
-
-//------------------------------------------- News routes starts----------------------------------------
-app.use('/news', newsRoutes)
-//------------------------------------------- News routes ends----------------------------------------
 
 //------------------------------------------- Announcements routes starts----------------------------------------
 app.use('/announcements', announcementsRoutes)
@@ -50,9 +44,22 @@ app.use('/announcements', announcementsRoutes)
 app.use('/events', eventsRoutes)
 //------------------------------------------- Events routes ends----------------------------------------
 
+//------------------------------------------- Faculties routes starts----------------------------------------
+app.use('/faculties', facultiesRoutes)
+//------------------------------------------- Faculties routes ends----------------------------------------
+
 //------------------------------------------- NavbarItems routes starts----------------------------------------
 app.use('/navbarItems', navbarItemsRoutes)
 //------------------------------------------- NavbarItems routes ends----------------------------------------
+
+//------------------------------------------- News routes starts----------------------------------------
+app.use('/news', newsRoutes)
+//------------------------------------------- News routes ends----------------------------------------
+
+//------------------------------------------- Pages routes starts----------------------------------------
+app.use('/pages', pagesRoutes)
+//------------------------------------------- Pages routes ends----------------------------------------
+
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404))

@@ -9,17 +9,16 @@
         <a href="/navbarItems/new">Add a Navbar Item</a>
     </div>
    
-    <% for (let c of navbarItems){%>
+    <% for (let c of navbarItems) { %>
         <div class="card mb-3">
             <div class="row">
-                    <div class="card-body ps-4">
-                        <h5 class="card-title">Item: <%= c.item %></h5>
-                        <p class="card-text">Link: <%= c.link %></p>
-                        <a class="btn btn-primary" href="/navbarItems/<%=c._id%>">View more...</a>
-                    </div>
-                
+                <div class="card-body ps-4">
+                    <h5 class="card-title"><%= c.item %></h5>
+                    <p class="card-text"><b>LINK : </b><%= c.link %></p>
+                    <a class="btn btn-primary" href="/navbarItems/<%=c._id%>">View more...</a>
+                </div>    
             </div>
         </div>
     <% }%>
-</div>    
+    </div>    
 

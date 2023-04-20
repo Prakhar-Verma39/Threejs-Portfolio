@@ -3,12 +3,12 @@
         <div class="col-8"> 
             <div class="card mb-3">
                 <div class="card-body">
-                <h2 class="card-title">Item: <%= navbarItem.item %></h2>
-                <p class="card-text">Link: <%= navbarItem.link %></p>
-                <p class="card-text">subItems: [ <% if(navbarItem.subItems.length) { navbarItem.subItems.forEach(subItem => { %>
+                <h4 class="card-title"><b>ITEM : </b><%= navbarItem.item %></h4>
+                <p class="card-text"><b>LINK : </b><%= navbarItem.link %></p>
+                <p class="card-text d-inline"><b>SUB-ITEMS : </b>[ <% if(navbarItem.subItems.length) { navbarItem.subItems.forEach(subItem => { %>
                     <span><%= subItem %>, </span>
                 <% });} %> ]</p>
-                <p class="card-text">subLinks: [ <% if(navbarItem.subItems.length) { navbarItem.subLinks.forEach(subLink => { %>
+                <p class="card-text"><b>SUB-LINKS : </b>[ <% if(navbarItem.subItems.length) { navbarItem.subLinks.forEach(subLink => { %>
                     <span><%= subLink %>, </span>
                 <% });} %> ]</p>
                 </div>
@@ -19,7 +19,7 @@
                     </form>
                 </div>
                 <div class="card-footer" style="color: rgb(125 130 137 / 75%)!important;">
-                    <%= navbarItem.updatedAt %>
+                    <b> Last Updated : </b><%= navbarItem.updatedAt %>
                 </div>
             </div>
     </div>
